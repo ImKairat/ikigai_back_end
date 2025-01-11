@@ -1,1 +1,1 @@
-# IKIGAI
+# IkigAI
