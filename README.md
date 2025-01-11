@@ -1,1 +1,1 @@
-# python_new_project_template
+# IKIGAI
