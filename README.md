@@ -1,33 +1,33 @@
 # IkigAI Backend
 
-Backend для проекта **IkigAI**, который помогает пользователям найти свой икигай с помощью моделей больших языков (LLM).  
+The backend for the **IkigAI** project, designed to help users discover their Ikigai using large language models (LLM).  
 
-## О проекте
+## About the Project
 
-Проект основан на концепции "икигай" — японской философии, раскрывающей смысл жизни. 
+The project is inspired by the concept of "Ikigai" — a Japanese philosophy that translates to "reason for being."  
 
-С помощью LLM-моделей пользователи могут получить рекомендации, основанные на их уникальных интересах, навыках и ценностях.
+With the power of LLMs, users can receive personalized recommendations based on their unique interests, skills, and values.
 
-## Основные технологии
+## Key Technologies
 
-- **Фреймворк:** Django
-- **Язык:** Python
-- **Модели ИИ:** Интеграция с LLM
-- **База данных:** PostgreSQL
-- **Аутентификация:** JWT
+- **Framework:** Django  
+- **Language:** Python  
+- **AI Models:** Integration with LLMs  
+- **Database:** PostgreSQL  
+- **Authentication:** JWT  
 
-## Структура проекта
+## Project Structure
 
 ```plaintext
 ikigai-backend/
-├── manage.py           # Управление Django-проектом
-├── ikigai/             # Основные настройки проекта
-│   ├── settings.py     # Конфигурации
-│   ├── urls.py         # Маршруты
-│   └── wsgi.py         # WSGI для деплоя
-├── apps/               # Django-приложения
-│   ├── core/           # Основное приложение
-│   ├── auth/           # Аутентификация
-│   └── recommendations/ # Логика рекомендаций
-├── requirements.txt    # Зависимости проекта
-└── README.md           # Документация
+├── manage.py           # Django project management
+├── ikigai/             # Core project settings
+│   ├── settings.py     # Configuration
+│   ├── urls.py         # URL routing
+│   └── wsgi.py         # WSGI for deployment
+├── apps/               # Django applications
+│   ├── core/           # Core application
+│   ├── auth/           # Authentication
+│   └── recommendations/ # Recommendation logic
+├── requirements.txt    # Project dependencies
+└── README.md           # Documentation
