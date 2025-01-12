@@ -8,6 +8,14 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.13"
 django = "^5.1.4"
+openai = "^1.59.6"
+llama-index-llms-groq = "^0.3.1"
+llama-index = "^0.12.10"
+llama-index-program-openai = "^0.3.1"
+llama-index-llms-llama-api = "^0.3.0"
+langchain = "^0.3.14"
+langchain-openai = "^0.3.0"
+gpt4all = "^2.8.2"
 
 
 [build-system]
