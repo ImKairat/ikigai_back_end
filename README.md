@@ -1,33 +1,56 @@
-# IkigAI Backend
+# Actix Web Project
 
-The backend for the **IkigAI** project, designed to help users discover their Ikigai using large language models (LLM).  
+This project is built using the [Actix Web](https://actix.rs/) framework version 4.9.0, leveraging Rust 1.84.0 for high-performance web development.
 
-## About the Project
+## Features
 
-The project is inspired by the concept of "Ikigai" — a Japanese philosophy that translates to "reason for being."  
+- High-performance HTTP server built with Actix Web.
+- Modular and scalable design.
+- Easy integration with third-party libraries and Rust's strong type system.
 
-With the power of LLMs, users can receive personalized recommendations based on their unique interests, skills, and values.
+## Dependencies
 
-## Key Technologies
+### Major Dependencies
+- **Actix Web 4.9.0**: For creating fast and reliable web services.
 
-- **Framework:** Django  
-- **Language:** Python  
-- **AI Models:** Integration with LLMs  
-- **Database:** PostgreSQL  
-- **Authentication:** JWT  
+You can find the complete list of dependencies in the `Cargo.toml` file.
+
+## Prerequisites
+
+- Install Rust (version 1.84.0 or later): [Rust Installation Guide](https://www.rust-lang.org/tools/install)
+- Install `cargo`: Comes with Rust installation.
+- Make sure `actix-web` is added as a dependency in your `Cargo.toml` file.
+
+## Getting Started
+
+### 1. Clone the Repository:
+```bash
+git clone https://github.com/ImKairat/ikigai_back_end.git
+cd ikigai_back_end
+```
+
+### 2. Build the Project:
+```bash
+cargo build
+```
+
+### 3. Run the Server:
+```bash
+cargo run
+```
+
+Once started, the server will run locally, and you can access it in your browser or using a tool like `curl`.
+
+### 4. Testing the Application:
+Run the following command to execute the test suite:
+```bash
+cargo test
+```
 
 ## Project Structure
 
-```plaintext
-ikigai-backend/
-├── manage.py           # Django project management
-├── ikigai/             # Core project settings
-│   ├── settings.py     # Configuration
-│   ├── urls.py         # URL routing
-│   └── wsgi.py         # WSGI for deployment
-├── apps/               # Django applications
-│   ├── core/           # Core application
-│   ├── auth/           # Authentication
-│   └── recommendations/ # Recommendation logic
-├── requirements.txt    # Project dependencies
-└── README.md           # Documentation
+Here’s a high-level overview of the project structure:
+. ├── src
+  │ ├── main.rs # Entry point of the application 
+  │ └── routes/ # Folder for route-related logic 
+  ├── Cargo.toml # Dependency and project configuration
