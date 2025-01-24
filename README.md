@@ -50,6 +50,7 @@ cargo test
 ## Project Structure
 
 Here’s a high-level overview of the project structure:
+```plaintext
 . ├── src
   │ ├── main.rs # Entry point of the application 
   │ └── routes/ # Folder for route-related logic 
