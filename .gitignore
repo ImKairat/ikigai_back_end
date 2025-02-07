@@ -1,7 +1,10 @@
 *.lock
 
-
-
 # Added by cargo
 
 /target
+src/config.yaml
+
+.idea
+
+/front

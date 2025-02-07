@@ -1,12 +1,14 @@
+#![allow(dead_code, unused_imports, unused_variables)]
+mod routes;
+mod cfg;
+
+use std::error::Error;
+use routes::{home::home_page, chat::chat_page};
+use cfg::{get_server_config, ServerConfig};
+
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
-const IP_ADDRESS: &str = "127.0.0.1";
-const PORT: u16 = 8080;
-
-#[get("/")]
-async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello World!")
-}
+use actix_files::Files;
 
 #[post("/echo")]
 async fn echo(body: String) -> impl Responder {
@@ -19,15 +21,19 @@ async fn manual_hello() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    println!("\nStarting server on http://{}:{}\n", IP_ADDRESS, PORT);
+    let server = get_server_config().await.unwrap();
+    let (host, port) = (&server.host, server.port);
+    
+    println!("\nStarting server on http://{}:{}\n", host, port);
+    
     HttpServer::new(|| {
         App::new()
-            .service(hello)
-            .service(echo)
-            .service()
-            .route("/manual", web::get().to(manual_hello))
+            .route("/", web::get().to(home_page))
+            .route("/chat", web::get().to(chat_page))
+            .service(Files::new("/static", "front/home/static").show_files_listing())
+            .service(Files::new("/static", "front/chat/static").show_files_listing())
     })
-        .bind(format!("{IP_ADDRESS}:{PORT}"))?
+        .bind(format!("{host}:{port}"))?
         .run()
         .await
 }
