@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IkigAI</title>
+    <!--<link rel="stylesheet" href="./static/style.css"> &lt;!&ndash; CSS для главной страницы &ndash;&gt;-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            text-align: center;
+        }
+        h1 {
+            color: #f4f4f9;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            padding: 40px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #ecf0f1;
+            margin: 10px auto;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 400px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>IkigAI</h1>
+</header>
+
+<main>
+    <h1>Что такое Икигай?</h1>
+    <p><strong>Икигай</strong> – это японская концепция, означающая «смысл жизни» или «то, ради чего стоит просыпаться по утрам».</p>
+    <p>Она находится на пересечении четырех аспектов:</p>
+    <ul>
+        <li><strong>То, что ты любишь</strong> (страсть).</li>
+        <li><strong>То, в чем ты хорош</strong> (призвание).</li>
+        <li><strong>То, за что тебе могут платить</strong> (профессия).</li>
+        <li><strong>То, что нужно миру</strong> (миссия).</li>
+    </ul>
+    <p>Когда все эти элементы соединяются, человек находит свой истинный <strong>икигай</strong>, что приносит удовлетворение, радость и мотивацию.</p>
+    <!--<img src="../img/graph.png" alt="Ikigai">-->
+
+
+    <!-- Кнопка для перехода в чат -->
+    <button id="chat-button">Перейти в чат</button>
+</main>
+
+<footer>
+    <p>&copy; 2025 Akmoor * Kairat</p>
+</footer>
+
+<script src="./static/script.js"></script> <!-- JS для главной страницы -->
+<script>
+    // Добавляем обработчик на кнопку, чтобы перейти на /chat
+    document.getElementById('chat-button').addEventListener('click', function() {
+        window.location.href = '/chat';
+    });
+</script>
+</body>
+</html>
