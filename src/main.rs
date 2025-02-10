@@ -10,14 +10,6 @@ use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
 use actix_files::Files;
 
-#[post("/echo")]
-async fn echo(body: String) -> impl Responder {
-    HttpResponse::Ok().body(body)
-}
-
-async fn manual_hello() -> impl Responder {
-    HttpResponse::Ok().body("Manual Hello World!")
-}
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
