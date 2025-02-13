@@ -1,14 +1,15 @@
-# Базовый образ с Rust и необходимые зависимости
-FROM rust:latest
-
-# Устанавливаем рабочую директорию
+FROM rust:latest AS builder
 WORKDIR /app
 
-# Копируем файлы проекта
-COPY . .
+COPY Cargo.toml Cargo.lock ./
+RUN cargo fetch --locked
 
-# Сборка бинарника
+COPY src/ src/
 RUN cargo build --release
 
-# Запускаем бинарник
-CMD ["./target/release/service"]
+FROM debian:bookworm-slim
+WORKDIR /app
+
+COPY --from=builder /app/target/release/llm_chat .
+
+CMD ["./llm_chat"]

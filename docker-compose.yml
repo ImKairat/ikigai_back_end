@@ -15,34 +15,37 @@ services:
 
   home_page:
     build:
-      context: ./service1
+      context: ./home_page
       dockerfile: Dockerfile
+    restart: unless-stopped
     environment:
       - DATABASE_URL=postgresql://user:password@db:5432/mydb
-    depends_on:
-      - db
     ports:
       - "8081:8080"
 
   auth:
     build:
-      context: ./service2
+      context: ./auth
       dockerfile: Dockerfile
+    restart: unless-stopped
     environment:
       - DATABASE_URL=postgresql://user:password@db:5432/mydb
     depends_on:
-      - db
+      home_page:
+        condition: service_healthy
     ports:
       - "8082:8080"
 
   llm_chat:
     build:
-      context: ./service3
+      context: ./llm_chat
       dockerfile: Dockerfile
+    restart: unless-stopped
     environment:
       - DATABASE_URL=postgresql://user:password@db:5432/mydb
     depends_on:
-      - db
+      home_page:
+        condition: service_healthy
     ports:
       - "8083:8080"
 
