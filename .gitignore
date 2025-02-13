@@ -2,7 +2,8 @@
 **/*.lock
 **/target
 
-# config file
+# config files
 **/config.*
 
+# IDE files
 .idea
