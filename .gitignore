@@ -2,9 +2,7 @@
 
 # Added by cargo
 
-/target
-src/config.yaml
+**/target
+**/src/config.yaml
 
 .idea
-
-# /front
