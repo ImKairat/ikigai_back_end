@@ -1,9 +1,8 @@
-*.lock
-
 # Added by cargo
-
+**/*.lock
 **/target
-**/src/config.yaml
+
+# config file
+**/config.*
 
 .idea
-docker-compose.yml.back
