@@ -1,6 +1,6 @@
 # Added by cargo
 **/*.lock
-**/target
+**/target/
 
 # config files
 **/config.*
