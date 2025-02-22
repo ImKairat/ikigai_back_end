@@ -1,27 +1,28 @@
-use actix_web::{get, App, HttpResponse, HttpServer, Responder};
-use tokio::fs;
+use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
 #[get("/")]
-async fn index() -> impl Responder {
-    match fs::read_to_string("./static/index.html").await {
-        Ok(contents) => HttpResponse::Ok()
-            .content_type("text/html; charset=utf-8")
-            .body(contents),
-        Err(_) => HttpResponse::InternalServerError()
-            .body("Error loading index.html"),
-    }
+async fn hello() -> impl Responder {
+    HttpResponse::Ok().body("Hello world!")
+}
+
+#[post("/echo")]
+async fn echo(req_body: String) -> impl Responder {
+    HttpResponse::Ok().body(req_body)
+}
+
+async fn manual_hello() -> impl Responder {
+    HttpResponse::Ok().body("Hey there!")
 }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    let (host, port) = ("127.0.0.1", 8080);
-    println!("\nServer running at http://{}:{}\n", host, port);
-
     HttpServer::new(|| {
         App::new()
-            .service(index)
+            .service(hello)
+            .service(echo)
+            .route("/hey", web::get().to(manual_hello))
     })
-    .bind((host, port))?
+    .bind(("127.0.0.1", 8080))?
     .run()
     .await
 }
