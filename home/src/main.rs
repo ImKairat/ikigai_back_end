@@ -1,28 +1,28 @@
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+mod config;
+mod pages;
 
-#[get("/")]
-async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
-}
+use actix_web::{get, App, HttpResponse, HttpServer, Responder};
+use actix_web::middleware::Logger;
+use env_logger::Env;
+use config::get_config;
+use pages::home::get_home_page;
 
-#[post("/echo")]
-async fn echo(req_body: String) -> impl Responder {
-    HttpResponse::Ok().body(req_body)
-}
-
-async fn manual_hello() -> impl Responder {
-    HttpResponse::Ok().body("Hey there!")
-}
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    let cfg = get_config().unwrap();
+    println!("\nServer run on http://{}:{}\n", cfg.host, cfg.port);
+
+    env_logger::init_from_env(Env::default().default_filter_or("info"));
+
     HttpServer::new(|| {
         App::new()
-            .service(hello)
-            .service(echo)
-            .route("/hey", web::get().to(manual_hello))
+            .wrap(Logger::default())
+            .service(
+                get_home_page()
+            )
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind((cfg.host, cfg.port))?
     .run()
     .await
 }
