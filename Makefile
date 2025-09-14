@@ -1,1 +1,3 @@
 
+run:
+	@cargo run -q

@@ -1,3 +1,10 @@
-.python-version
-**/*__pycache__*
-**/config.py
+*.lock
+
+# Added by cargo
+
+/target
+src/config.yaml
+
+.idea
+
+# /front
